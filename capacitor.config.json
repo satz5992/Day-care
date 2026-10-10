@@ -1,0 +1,8 @@
+{
+  "appId": "com.stjohns.oncology.daycaresummary",
+  "appName": "Day Care Chemo Summary",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}

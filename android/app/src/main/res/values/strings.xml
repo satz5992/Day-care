@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Day Care Chemo Summary</string>
+    <string name="title_activity_main">Day Care Chemo Summary</string>
+    <string name="package_name">com.stjohns.oncology.daycaresummary</string>
+    <string name="custom_url_scheme">com.stjohns.oncology.daycaresummary</string>
+</resources>
