@@ -1,20 +1,13 @@
-# Day Care Chemo Summary – Android
+# Day Care Chemo Summary – Android (v2.0, mobile interface)
 
-Same app as the Windows version (settings screen, consultant list, vitals with units, move-up/down chemo rows,
-delete-cycle, Date of Discharge, Google Sheets sync, one-page PDF share). Rebuilt from the latest desktop source.
+Mobile-first redesign of the day-care discharge summary app. Same data as the Windows app:
+same patient records, same Google Sheet columns (UHID, Date, Cycle…, Date of Discharge), same fields.
 
-## Get the APK (no Android Studio needed)
-1. Create a free GitHub account → New repository (private is fine), e.g. `daycare-chemo-android`.
-2. Upload everything in this folder (keep the `.github` folder) → commit to `main`.
-3. Open the repo → **Actions** tab → *Build Android APK* → wait ~5–8 min.
-4. Open the finished run → **Artifacts** → download `day-care-chemo-summary-apk` → unzip → `app-debug.apk`.
-5. Send the APK to the phone, tap it, allow "Install unknown apps" when asked.
+- Home: search patients by UHID/name, start a new visit, cloud status light (auto-connects on open)
+- Patient page: all cycles, open / delete one cycle, "New cycle (copy last)", pull from cloud
+- Editor: Patient · HOPI · Vitals (with units) · Pre-med · Chemo (reorder ↑↓) · Post-med · Tolerance · Discharge
+- Print / Share: one-page PDF (letterhead, Times New Roman) or Word; the visit is saved first
+- Settings: Google Sheet + key, logo, standard medicines, consultants, backup/CSV
 
-## Or build locally
-`npm install && npx cap sync android` then open `android/` in Android Studio → Build → Build APK(s).
-
-## Notes
-- Data is stored privately on the phone; Google Sheets sync uses the same service-account key + Sheet ID as the desktop app
-  (Settings → Cloud Sync). The key sits on the phone – use a dedicated service account and keep the phone locked.
-- "Print summary" creates a one-page PDF and opens the Android share sheet (Print / Save / WhatsApp).
-- Auto-update is Windows-only; on Android install a newer APK over the old one (data is kept).
+Build: every push to `main` builds the APK on GitHub Actions and publishes it at
+Releases → "Latest Android APK" (`apk-latest`). Install over the old APK; data is kept.
