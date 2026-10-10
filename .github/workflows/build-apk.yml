@@ -5,6 +5,9 @@ on:
   push:
     branches: [ main, master ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,3 +49,12 @@ jobs:
         with:
           name: day-care-chemo-summary-apk
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Publish APK as a GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-latest
+          name: Latest Android APK
+          body: Debug APK built from the latest commit. Download app-debug.apk and install it on your phone.
+          files: android/app/build/outputs/apk/debug/app-debug.apk
+          make_latest: true
